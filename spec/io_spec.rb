@@ -5,10 +5,10 @@ require 'csv'
 RSpec.describe IO do
   let!(:csv_io) do
     csv_string = <<~CSV
-        col1,col2,col3
-        1,2,3
-        4,5,6
-        7,8,9
+      col1,col2,col3
+      1,2,3
+      4,5,6
+      7,8,9
     CSV
     CSV.new(csv_string, headers: true).to_io
   end
