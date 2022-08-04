@@ -12,8 +12,14 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1.0'
-      - name: Run Rspec
+      - name: Set up gem
         run: |
           gem install bundler
           bundle install -j4 --retry 3
-          bundle exec rspec
+
+      - name: Run Rubocop
+        run: |
+          bundle exec rubocop spec/*
+      - name: Run Rspec
+        run: |
+          bundle exec rspec --format d
