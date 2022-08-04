@@ -3,23 +3,32 @@ name: ci
 on: push
 
 jobs:
-  rspec:
+  rubocop:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1.0'
-      - name: Set up gem
         run: |
           gem install bundler
           bundle install -j4 --retry 3
-
       - name: Run Rubocop
         run: |
           bundle exec rubocop spec/*
+
+  rspec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.0'
+        run: |
+          gem install bundler
+          bundle install -j4 --retry 3
       - name: Run Rspec
         run: |
           bundle exec rspec --format d
