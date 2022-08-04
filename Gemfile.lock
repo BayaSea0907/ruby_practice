@@ -17,13 +17,13 @@ GEM
     rspec-support (3.11.0)
 
 PLATFORMS
-  arm64-darwin-20
+  ruby
 
 DEPENDENCIES
   rspec
 
 RUBY VERSION
-   ruby 3.1.0p0
+   ruby 2.7.6
 
 BUNDLED WITH
-   2.3.7
+   2.1.4
